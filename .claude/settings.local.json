@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:\\\\Users\\\\Vinay\\\\Development\\\\VsnapU\" -maxdepth 2 -type d -name \"*wedding*\" 2>/dev/null)"
+    ]
+  }
+}
