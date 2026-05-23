@@ -39,7 +39,7 @@
               @if (playingId() === item.id) {
                 @if (isYoutube(item.mediaUrl)) {
                   <iframe
-                    [src]="getEmbedUrl(item.mediaUrl)"
+                    [src]="playingEmbedUrl()!"
                     class="inline-player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

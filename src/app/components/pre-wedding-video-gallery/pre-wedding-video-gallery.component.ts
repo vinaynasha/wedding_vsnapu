@@ -19,6 +19,7 @@ export class PreWeddingVideoGalleryComponent implements OnInit {
 
   items = signal<WeddingGalleryItem[]>([]);
   playingId = signal<number | null>(null);
+  playingEmbedUrl = signal<SafeResourceUrl | null>(null);
 
   private dragging = false;
   private startX = 0;
@@ -58,14 +59,19 @@ export class PreWeddingVideoGalleryComponent implements OnInit {
   }
 
   play(item: WeddingGalleryItem, e: Event) {
-    if (!this.didDrag) { e.stopPropagation(); this.playingId.set(item.id); }
+    if (this.didDrag) return;
+    e.stopPropagation();
+    if (this.isYoutube(item.mediaUrl)) {
+      this.playingEmbedUrl.set(this.buildEmbedUrl(item.mediaUrl));
+    }
+    this.playingId.set(item.id);
   }
 
   isYoutube(url: string | null): boolean {
     return /youtube\.com|youtu\.be/.test(url ?? '');
   }
 
-  getEmbedUrl(url: string): SafeResourceUrl {
+  private buildEmbedUrl(url: string): SafeResourceUrl {
     const m = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
     const id = m ? m[1] : '';
     return this.sanitizer.bypassSecurityTrustResourceUrl(
