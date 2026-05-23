@@ -1,0 +1,114 @@
+.site-footer {
+  background: #0f0f0f;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 64px 0 0;
+}
+
+.footer-logo {
+  height: 44px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 1rem;
+}
+
+.footer-logo-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.7;
+  max-width: 260px;
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.social-link:hover { color: #e84d63; }
+.social-link[aria-label="WhatsApp"]:hover { color: #25D366; }
+
+.contact-icon svg { display: block; }
+
+.footer-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.6rem;
+}
+
+.footer-contact-line a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-contact-line a:hover {
+  color: #fff;
+}
+
+.contact-icon {
+  color: #e84d63;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.08);
+  margin: 2.5rem 0 1.5rem;
+}
+
+.footer-bottom {
+  padding-bottom: 1.75rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  font-size: 0.78rem;
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
