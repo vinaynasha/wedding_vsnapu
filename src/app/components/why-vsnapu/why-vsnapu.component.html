@@ -1,0 +1,42 @@
+<section id="why" class="why-section">
+  <div class="why-inner">
+    <div class="why-header">
+      <p class="section-eyebrow">Our Promise</p>
+      <h2 class="section-title">{{ sectionTitle() }}</h2>
+      <p class="why-sub">{{ sectionSub() }}</p>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      @for (stat of stats(); track stat.label) {
+        <div class="stat-item">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+
+    <!-- Cards grid -->
+    <div class="why-grid">
+      @for (card of cards; track card.title) {
+        <div class="why-card" [class.why-card--featured]="card.logoUrl">
+          <div class="card-icon">
+            @if (card.logoUrl) {
+              <img [src]="card.logoUrl" [alt]="card.title" class="card-logo" />
+            } @else {
+              {{ card.icon }}
+            }
+          </div>
+          <h3 class="card-title">{{ card.title }}</h3>
+          <p class="card-desc">{{ card.desc }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="why-cta">
+      <button class="cta-btn" onclick="document.getElementById('enquiry-fab').click()">
+        Start Planning Your Wedding
+      </button>
+    </div>
+  </div>
+</section>
