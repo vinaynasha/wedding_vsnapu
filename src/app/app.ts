@@ -1,12 +1,35 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { PhotoGalleryComponent } from './components/photo-gallery/photo-gallery.component';
+import { VideoGalleryComponent } from './components/video-gallery/video-gallery.component';
+import { ClientsTickerComponent } from './components/clients-ticker/clients-ticker.component';
+import { QuoteSectionComponent } from './components/quote-section/quote-section.component';
+import { PreWeddingGalleryComponent } from './components/pre-wedding-gallery/pre-wedding-gallery.component';
+import { PreWeddingVideoGalleryComponent } from './components/pre-wedding-video-gallery/pre-wedding-video-gallery.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { WhyVsnapuComponent } from './components/why-vsnapu/why-vsnapu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { EnquiryModalComponent } from './components/enquiry-modal/enquiry-modal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    NavbarComponent,
+    HeroComponent,
+    PhotoGalleryComponent,
+    VideoGalleryComponent,
+    ClientsTickerComponent,
+    QuoteSectionComponent,
+    PreWeddingGalleryComponent,
+    PreWeddingVideoGalleryComponent,
+    ReviewsComponent,
+    WhyVsnapuComponent,
+    FooterComponent,
+    EnquiryModalComponent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('weddings-app');
-}
+export class App {}

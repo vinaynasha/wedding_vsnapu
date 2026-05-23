@@ -1,0 +1,36 @@
+<section id="hero" class="hero-section">
+  <!-- Dynamic background: video from CMS or fallback dark gradient -->
+  @if (heroVideoUrl()) {
+    <video
+      class="hero-bg-video"
+      [src]="heroVideoUrl()!"
+      [poster]="heroPosterUrl() ?? undefined"
+      autoplay muted loop playsinline>
+    </video>
+  } @else if (heroImageUrl()) {
+    <img class="hero-bg-image" [src]="heroImageUrl()!" alt="" />
+  } @else {
+    <div class="hero-bg-fallback"></div>
+  }
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">VsnapU Weddings</p>
+    <h1 class="hero-headline">{{ headline() }}</h1>
+    <p class="hero-subheadline">{{ subheadline() }}</p>
+    <div class="hero-actions">
+      <button class="hero-cta-primary" onclick="document.getElementById('enquiry-fab').click()">
+        Plan Your Wedding
+      </button>
+      <button class="hero-cta-secondary" (click)="scrollToGallery()">
+        View Portfolio
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" (click)="scrollToGallery()">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
