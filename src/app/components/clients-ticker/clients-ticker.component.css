@@ -1,0 +1,111 @@
+.clients-section {
+  background: #0a0a0a;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.clients-header {
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 48px;
+}
+
+.section-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #E31837;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+/* ── Ticker rows ── */
+.ticker-row {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.ticker-row:last-of-type {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+}
+
+/* Row 1 scrolls left */
+.ticker-left .ticker-inner {
+  animation: scrollLeft 60s linear infinite;
+}
+
+/* Row 2 scrolls right */
+.ticker-right .ticker-inner {
+  animation: scrollRight 60s linear infinite;
+}
+
+/* Pause on hover */
+.ticker-row:hover .ticker-inner {
+  animation-play-state: paused;
+}
+
+/* ── Logo images ── */
+.logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.logo-img {
+  height: 48px;
+  max-width: 160px;
+  object-fit: contain;
+  /* Make logos white on the dark background */
+  filter: brightness(0) invert(1);
+  opacity: 0.65;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+  display: block;
+}
+
+.logo-wrap:hover .logo-img {
+  filter: none;
+  opacity: 1;
+}
+
+.ticker-sep {
+  color: #E31837;
+  font-size: 0.55rem;
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+.clients-placeholder {
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  padding: 40px 24px;
+}
+
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}

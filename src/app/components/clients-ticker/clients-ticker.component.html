@@ -1,0 +1,51 @@
+<section id="clients" class="clients-section">
+  <div class="clients-header">
+    <p class="section-eyebrow">Trusted By</p>
+    <h2 class="section-title">Our Clients</h2>
+  </div>
+
+  @if (items().length === 0) {
+    <div class="clients-placeholder">Client logos coming soon.</div>
+  } @else {
+
+    <!-- Row 1: scrolls left -->
+    <div class="ticker-row ticker-left">
+      <div class="ticker-inner">
+        @for (item of row1(); track item.id) {
+          <span class="logo-wrap">
+            <img [src]="item.mediaUrl" [alt]="item.title || 'Client'" class="logo-img" draggable="false" />
+          </span>
+          <span class="ticker-sep">◇</span>
+        }
+        <!-- duplicate for seamless loop -->
+        @for (item of row1(); track 'dup1-' + item.id) {
+          <span class="logo-wrap">
+            <img [src]="item.mediaUrl" [alt]="item.title || 'Client'" class="logo-img" draggable="false" />
+          </span>
+          <span class="ticker-sep">◇</span>
+        }
+      </div>
+    </div>
+
+    <!-- Row 2: scrolls right (only if enough logos) -->
+    @if (row2().length > 0) {
+      <div class="ticker-row ticker-right">
+        <div class="ticker-inner">
+          @for (item of row2(); track item.id) {
+            <span class="logo-wrap">
+              <img [src]="item.mediaUrl" [alt]="item.title || 'Client'" class="logo-img" draggable="false" />
+            </span>
+            <span class="ticker-sep">◇</span>
+          }
+          @for (item of row2(); track 'dup2-' + item.id) {
+            <span class="logo-wrap">
+              <img [src]="item.mediaUrl" [alt]="item.title || 'Client'" class="logo-img" draggable="false" />
+            </span>
+            <span class="ticker-sep">◇</span>
+          }
+        </div>
+      </div>
+    }
+
+  }
+</section>
