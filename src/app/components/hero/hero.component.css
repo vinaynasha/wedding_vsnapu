@@ -19,6 +19,19 @@
   z-index: 0;
 }
 
+/* YouTube iframe background — must be oversized and centered since object-fit doesn't apply to iframes */
+iframe.hero-bg-video {
+  inset: unset;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;   /* 16:9 at full viewport width */
+  min-height: 100vh;
+  min-width: 177.78vh; /* 16:9 at full viewport height */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 .hero-bg-image {
   position: absolute;
   inset: 0;

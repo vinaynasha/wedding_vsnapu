@@ -1,6 +1,14 @@
 <section id="hero" class="hero-section">
-  <!-- Dynamic background: video from CMS or fallback dark gradient -->
-  @if (heroVideoUrl()) {
+  <!-- Dynamic background: YouTube embed, direct video, image, or fallback -->
+  @if (heroYoutubeEmbedUrl()) {
+    <iframe
+      class="hero-bg-video"
+      [src]="heroYoutubeEmbedUrl()!"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  } @else if (heroVideoUrl()) {
     <video
       class="hero-bg-video"
       [src]="heroVideoUrl()!"
