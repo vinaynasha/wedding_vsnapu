@@ -64,15 +64,16 @@ iframe.hero-bg-video {
   max-width: 800px;
 }
 
-.hero-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #E31837;
+.hero-logo {
+  height: 56px;
+  width: auto;
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeUp 0.8s 0.3s forwards;
+}
+
+@media (max-width: 600px) {
+  .hero-logo { height: 40px; }
 }
 
 .hero-headline {
