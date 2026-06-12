@@ -7,7 +7,7 @@ import { ClientsTickerComponent } from './components/clients-ticker/clients-tick
 import { QuoteSectionComponent } from './components/quote-section/quote-section.component';
 import { PreWeddingGalleryComponent } from './components/pre-wedding-gallery/pre-wedding-gallery.component';
 import { PreWeddingVideoGalleryComponent } from './components/pre-wedding-video-gallery/pre-wedding-video-gallery.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
+import { VideoReviewsComponent } from './components/video-reviews/video-reviews.component';
 import { WhyVsnapuComponent } from './components/why-vsnapu/why-vsnapu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EnquiryModalComponent } from './components/enquiry-modal/enquiry-modal.component';
@@ -24,7 +24,7 @@ import { EnquiryModalComponent } from './components/enquiry-modal/enquiry-modal.
     QuoteSectionComponent,
     PreWeddingGalleryComponent,
     PreWeddingVideoGalleryComponent,
-    ReviewsComponent,
+    VideoReviewsComponent,
     WhyVsnapuComponent,
     FooterComponent,
     EnquiryModalComponent
