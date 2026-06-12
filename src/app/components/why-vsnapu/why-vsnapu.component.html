@@ -23,6 +23,29 @@
           <div class="card-icon">
             @if (card.logoUrl) {
               <img [src]="card.logoUrl" [alt]="card.title" class="card-logo" />
+            } @else if (card.svgName === 'india') {
+              <!-- India map outline -->
+              <svg class="card-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 96" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" aria-label="India map">
+                <path d="M12,10 L22,4 L38,6 L60,12 L68,22 L64,32 L68,40 L66,52 L62,62 L58,72 L44,92 L32,76 L26,62 L22,50 L10,42 L12,32 L16,22 Z"/>
+              </svg>
+            } @else if (card.svgName === 'album') {
+              <!-- Photo album / premium photo book -->
+              <svg class="card-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 66" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-label="Premium photo album">
+                <!-- Page-stack depth lines on right edge -->
+                <line x1="50" y1="11" x2="50" y2="59"/>
+                <line x1="53" y1="13" x2="53" y2="57"/>
+                <!-- Album cover -->
+                <rect x="6" y="7" width="42" height="52" rx="3"/>
+                <!-- Spine curve on left -->
+                <path d="M6,7 C3,13 3,53 6,59"/>
+                <!-- Photo frame on cover -->
+                <rect x="13" y="13" width="28" height="28" rx="1"/>
+                <!-- Mountain landscape inside the photo -->
+                <polyline points="13,37 18,27 23,31 29,23 35,28 41,22 41,41 13,41"/>
+                <!-- Album title lines below the photo -->
+                <line x1="13" y1="47" x2="37" y2="47"/>
+                <line x1="13" y1="52" x2="27" y2="52"/>
+              </svg>
             } @else {
               {{ card.icon }}
             }

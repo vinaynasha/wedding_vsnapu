@@ -80,11 +80,15 @@ export class PreWeddingVideoGalleryComponent implements OnInit {
   }
 
   getThumbnail(item: WeddingGalleryItem): string | null {
-    if (item.thumbnailUrl) return item.thumbnailUrl;
+    if (item.thumbnailUrl) return this.toHttps(item.thumbnailUrl);
     if (this.isYoutube(item.mediaUrl)) {
       const m = item.mediaUrl.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
       if (m) return `https://img.youtube.com/vi/${m[1]}/maxresdefault.jpg`;
     }
     return null;
+  }
+
+  private toHttps(url: string): string {
+    return url.replace(/^http:\/\//i, 'https://');
   }
 }

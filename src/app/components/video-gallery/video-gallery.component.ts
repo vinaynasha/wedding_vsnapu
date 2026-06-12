@@ -90,11 +90,15 @@ export class VideoGalleryComponent implements OnInit {
   }
 
   getThumbnail(item: WeddingGalleryItem): string {
-    if (item.thumbnailUrl) return item.thumbnailUrl;
+    if (item.thumbnailUrl) return this.toHttps(item.thumbnailUrl);
     if (this.isYoutube(item.mediaUrl)) {
       const id = this.getYoutubeId(item.mediaUrl);
       return id ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg` : '';
     }
     return '';
+  }
+
+  private toHttps(url: string): string {
+    return url.replace(/^http:\/\//i, 'https://');
   }
 }

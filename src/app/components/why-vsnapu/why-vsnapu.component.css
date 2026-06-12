@@ -96,6 +96,13 @@
   align-items: center;
 }
 
+.card-svg {
+  height: 44px;
+  width: auto;
+  color: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
 .card-logo {
   height: 48px;
   width: auto;
