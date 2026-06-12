@@ -55,7 +55,11 @@ export class PreWeddingVideoGalleryComponent implements OnInit {
   }
 
   scrollBy(dir: 'left' | 'right') {
-    this.track.nativeElement.scrollBy({ left: dir === 'right' ? 420 : -420, behavior: 'smooth' });
+    const cards = this.track.nativeElement.children;
+    const step = cards.length >= 2
+      ? (cards[1] as HTMLElement).offsetLeft - (cards[0] as HTMLElement).offsetLeft
+      : (cards[0] as HTMLElement)?.offsetWidth ?? 396;
+    this.track.nativeElement.scrollBy({ left: dir === 'right' ? step : -step, behavior: 'smooth' });
   }
 
   play(item: WeddingGalleryItem, e: Event) {

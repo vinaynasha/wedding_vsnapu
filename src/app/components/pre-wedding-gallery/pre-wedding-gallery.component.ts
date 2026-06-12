@@ -54,7 +54,11 @@ export class PreWeddingGalleryComponent implements OnInit {
   }
 
   scrollBy(dir: 'left' | 'right') {
-    this.track.nativeElement.scrollBy({ left: dir === 'right' ? 360 : -360, behavior: 'smooth' });
+    const cards = this.track.nativeElement.children;
+    const step = cards.length >= 2
+      ? (cards[1] as HTMLElement).offsetLeft - (cards[0] as HTMLElement).offsetLeft
+      : (cards[0] as HTMLElement)?.offsetWidth ?? 352;
+    this.track.nativeElement.scrollBy({ left: dir === 'right' ? step : -step, behavior: 'smooth' });
   }
 
   openLightbox(item: WeddingGalleryItem) {
