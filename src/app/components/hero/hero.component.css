@@ -65,9 +65,10 @@ iframe.hero-bg-video {
 }
 
 .hero-logo {
+  display: block;
   height: 56px;
   width: auto;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   opacity: 0;
   animation: fadeUp 0.8s 0.3s forwards;
 }
