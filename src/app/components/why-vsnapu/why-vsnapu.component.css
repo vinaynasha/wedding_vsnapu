@@ -97,10 +97,23 @@
 }
 
 .card-svg {
-  height: 44px;
+  height: 52px;
   width: auto;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   flex-shrink: 0;
+}
+
+.card-svg-img {
+  height: 52px;
+  width: auto;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.why-card:hover .card-svg-img {
+  opacity: 1;
 }
 
 .card-logo {
