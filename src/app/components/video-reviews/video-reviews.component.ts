@@ -22,7 +22,7 @@ export class VideoReviewsComponent implements OnInit {
   ngOnInit() {
     this.galleryService.getActiveItems().subscribe({
       next: all => this.items.set(all.filter(i => i.galleryType === 'review-video')),
-      error: () => {}
+      error: (err) => console.error('[VideoReviews] Failed to load items', err)
     });
   }
 
@@ -53,7 +53,7 @@ export class VideoReviewsComponent implements OnInit {
     if (item.thumbnailUrl) return this.toHttps(item.thumbnailUrl);
     if (this.isYoutube(item.mediaUrl)) {
       const id = this.getYoutubeId(item.mediaUrl);
-      if (id) return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+      if (id) return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
     }
     return null;
   }

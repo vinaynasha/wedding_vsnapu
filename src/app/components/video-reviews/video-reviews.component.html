@@ -29,7 +29,7 @@
                 }
               } @else {
                 @if (getThumbnail(item)) {
-                  <img [src]="getThumbnail(item)!" [alt]="item.title ?? ''" class="review-thumb" />
+                  <img [src]="getThumbnail(item)!" [alt]="item.title ?? ''" class="review-thumb" loading="lazy" />
                 } @else {
                   <div class="review-thumb-fallback"></div>
                 }
