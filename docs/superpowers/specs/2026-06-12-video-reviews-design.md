@@ -40,7 +40,7 @@ In both `weddings.vsnapu.com` and `VSnapU-App`, add `location?: string` to the `
 
 **File:** `src/app/components/panel/wedding-gallery/wedding-gallery.component`
 
-### 2a. Filter dropdown (top of list)
+### 2a. Filter dropdown + pagination (top of list)
 Add a gallery type filter dropdown above the items table. Options:
 - All
 - Wedding Photos (`wedding-photo`)
@@ -51,6 +51,8 @@ Add a gallery type filter dropdown above the items table. Options:
 - Client Logos (`client-logo`)
 
 Table filters reactively on selection. Default: All.
+
+**Pagination:** Display 10 items per page. Show page number buttons (Previous / 1 2 3 … / Next) below the table. Pagination resets to page 1 whenever the filter changes. Client-side only — the existing `GET /api/WeddingGallery/all` endpoint returns all items and pagination is applied in the component.
 
 ### 2b. New gallery type option
 Add `{ value: 'review-video', label: 'Video Reviews' }` to the gallery type dropdown in the add/edit form.
