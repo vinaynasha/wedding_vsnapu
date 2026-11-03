@@ -1,0 +1,63 @@
+.quote-section {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.quote-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  padding: 80px 40px;
+}
+
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem;
+  line-height: 0.5;
+  color: #E31837;
+  opacity: 0.6;
+  margin-bottom: 32px;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0 0 24px;
+  border: none;
+  padding: 0;
+}
+
+.quote-author {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #E31837;
+  font-style: normal;
+}
+
+@media (max-width: 600px) {
+  .quote-section { background-attachment: scroll; }
+  .quote-content { padding: 60px 24px; }
+  .quote-mark { font-size: 5rem; }
+}

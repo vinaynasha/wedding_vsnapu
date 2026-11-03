@@ -1,0 +1,48 @@
+<section class="about-section" id="about">
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="row g-3 text-center">
+        @for (stat of stats; track stat.label) {
+          <div class="col-6 col-md-3">
+            <div class="stat-value">{{ stat.value }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Why VsnapU -->
+  <div class="container why-section">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <p class="section-eyebrow">Why VsnapU</p>
+        <h2 class="section-title">We don't just photograph weddings.</h2>
+        <p class="about-body">
+          We become part of your story. Our photographers are trained to anticipate
+          moments before they happen — the father's glance, the grandmother's tear,
+          the stolen look between two people who just became one.
+        </p>
+        <p class="about-body">
+          Backed by technology and driven by passion, VsnapU delivers a wedding
+          photography experience that feels personal, looks cinematic, and lasts forever.
+        </p>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="row g-3">
+          @for (pillar of pillars; track pillar.title) {
+            <div class="col-12 col-sm-6">
+              <div class="pillar-card">
+                <div class="pillar-icon">{{ pillar.icon }}</div>
+                <h5 class="pillar-title">{{ pillar.title }}</h5>
+                <p class="pillar-body">{{ pillar.body }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

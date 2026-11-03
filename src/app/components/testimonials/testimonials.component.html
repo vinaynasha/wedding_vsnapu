@@ -1,0 +1,47 @@
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <p class="section-eyebrow text-center">Love Notes</p>
+    <h2 class="section-title text-center">What Our Couples Say</h2>
+
+    <div class="testimonials-carousel mt-5">
+      <div class="testimonial-slide">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="testimonial-quote">
+          {{ testimonials[activeIndex()].quote }}
+        </p>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">
+            {{ testimonials[activeIndex()].clientName.charAt(0) }}
+          </div>
+          <div>
+            <div class="testimonial-name">{{ testimonials[activeIndex()].clientName }}</div>
+            <div class="testimonial-detail">
+              {{ testimonials[activeIndex()].eventType }}
+              @if (testimonials[activeIndex()].location) {
+                &nbsp;&bull;&nbsp;{{ testimonials[activeIndex()].location }}
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="testimonial-controls d-flex justify-content-center align-items-center gap-3 mt-4">
+        <button class="ctrl-btn" (click)="prev()" aria-label="Previous">&#8592;</button>
+
+        <div class="testimonial-dots d-flex gap-2">
+          @for (t of testimonials; track t.id; let i = $index) {
+            <button
+              class="dot"
+              [class.active]="activeIndex() === i"
+              (click)="goTo(i)"
+              [attr.aria-label]="'Testimonial ' + (i + 1)"
+            ></button>
+          }
+        </div>
+
+        <button class="ctrl-btn" (click)="next()" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>

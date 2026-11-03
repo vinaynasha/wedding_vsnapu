@@ -1,0 +1,132 @@
+.vs-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+  background: #fff;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.10);
+  transition: padding 0.3s, box-shadow 0.3s;
+}
+
+.vs-navbar.scrolled {
+  padding: 6px 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.14);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  text-decoration: none;
+  gap: 4px;
+}
+
+.brand-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.brand-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #E31837;
+  text-transform: uppercase;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links li a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-links li a:hover { color: #E31837; }
+
+.nav-enquire-btn {
+  background: #E31837;
+  border: none;
+  color: #fff;
+  padding: 9px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.nav-enquire-btn:hover {
+  background: #C0182F;
+  transform: translateY(-1px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #1a1a1a;
+  transition: 0.3s;
+  display: block;
+}
+
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px 40px;
+    gap: 20px;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  }
+  .nav-links.open { display: flex; }
+  .nav-inner { padding: 0 24px; }
+  .brand-logo { height: 36px; }
+}

@@ -1,0 +1,46 @@
+<section class="packages-section" id="packages">
+  <div class="container">
+    <p class="section-eyebrow text-center">Packages</p>
+    <h2 class="section-title text-center">Choose Your Story</h2>
+    <p class="section-sub text-center">
+      Every package includes our signature editing style and a dedicated wedding coordinator.
+    </p>
+
+    <div class="row justify-content-center g-4 mt-2">
+      @for (pkg of packages; track pkg.name) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="package-card" [class.highlighted]="pkg.highlight">
+            @if (pkg.highlight) {
+              <div class="popular-badge">Most Popular</div>
+            }
+            <h3 class="package-name">{{ pkg.name }}</h3>
+            <p class="package-desc">{{ pkg.description }}</p>
+
+            <ul class="package-features">
+              @for (feat of pkg.features; track feat) {
+                <li>
+                  <span class="feat-check">&#10003;</span>
+                  {{ feat }}
+                </li>
+              }
+            </ul>
+
+            <button
+              class="btn package-cta w-100 mt-auto"
+              [class.cta-primary]="pkg.highlight"
+              [class.cta-outline]="!pkg.highlight"
+              (click)="scrollToEnquiry()"
+            >
+              Get a Quote
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <p class="packages-note text-center mt-4">
+      Prices vary by date, location, and customisations.
+      <a href="javascript:void(0)" (click)="scrollToEnquiry()">Contact us</a> for a personalised quote.
+    </p>
+  </div>
+</section>

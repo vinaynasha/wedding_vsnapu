@@ -1,0 +1,25 @@
+<nav class="vs-navbar" [class.scrolled]="scrolled()">
+  <div class="nav-inner">
+    <a class="nav-brand" (click)="scrollTo('hero')">
+      <img src="assets/vsnapu-logo.png" alt="VsnapU" class="brand-logo" />
+      <sup class="brand-tag">Weddings</sup>
+    </a>
+
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" [class.open]="menuOpen()">
+      <li><a (click)="scrollTo('gallery')">Portfolio</a></li>
+      <li><a (click)="scrollTo('clients')">Clients</a></li>
+      <li><a (click)="scrollTo('pre-wedding')">Pre-Wedding</a></li>
+      <li><a (click)="scrollTo('reviews')">Reviews</a></li>
+      <li><a (click)="scrollTo('why')">Why Us</a></li>
+      <li>
+        <button class="nav-enquire-btn" onclick="document.getElementById('enquiry-fab').click()">
+          Get a Quote
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

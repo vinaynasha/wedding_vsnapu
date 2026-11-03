@@ -1,0 +1,17 @@
+<section class="quote-section" [style.background-image]="imageUrl() ? 'url(' + imageUrl() + ')' : 'none'">
+  <div class="quote-overlay"></div>
+  <div class="quote-content">
+    <div class="quote-mark">"</div>
+    @if (quoteText()) {
+      <blockquote class="quote-text">{{ quoteText() }}</blockquote>
+    } @else {
+      <blockquote class="quote-text">
+        Love is not just something you feel — it is something you see,<br />
+        and we make sure you see it forever.
+      </blockquote>
+    }
+    @if (quoteAuthor()) {
+      <cite class="quote-author">— {{ quoteAuthor() }}</cite>
+    }
+  </div>
+</section>

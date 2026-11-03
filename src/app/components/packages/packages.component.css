@@ -1,0 +1,133 @@
+.packages-section {
+  padding: 80px 0;
+  background: #faf9f7;
+}
+
+.section-sub {
+  color: #777;
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background: #fff;
+  border: 1px solid #e8e5e0;
+  border-radius: 12px;
+  padding: 2rem 1.75rem 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.package-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+  transform: translateY(-4px);
+}
+
+.package-card.highlighted {
+  border-color: #1a1a1a;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.package-name {
+  font-family: 'Georgia', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.package-desc {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.package-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  flex: 1;
+}
+
+.package-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: #3a3a3a;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #f0ede8;
+}
+
+.package-features li:last-child {
+  border-bottom: none;
+}
+
+.feat-check {
+  color: #198754;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.package-cta {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.65rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.cta-primary {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+.cta-primary:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.cta-outline {
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+}
+
+.cta-outline:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.packages-note {
+  font-size: 0.82rem;
+  color: #999;
+}
+
+.packages-note a {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

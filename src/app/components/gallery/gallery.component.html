@@ -1,0 +1,102 @@
+<section class="gallery-section" id="portfolio">
+  <div class="container mb-4">
+    <p class="section-eyebrow text-center">Our Work</p>
+    <h2 class="section-title text-center">Stories We've Told</h2>
+
+    <!-- Category filters -->
+    @if (categories().length > 0) {
+      <div class="category-filters d-flex justify-content-center flex-wrap gap-2 mt-3">
+        <button
+          class="btn btn-filter"
+          [class.active]="activeCategory() === 'all'"
+          (click)="setCategory('all')"
+        >All</button>
+        @for (cat of categories(); track cat) {
+          <button
+            class="btn btn-filter"
+            [class.active]="activeCategory() === cat"
+            (click)="setCategory(cat)"
+          >{{ cat }}</button>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Horizontal scroll gallery -->
+  <div class="gallery-outer">
+    <div
+      class="gallery-track"
+      #scrollTrack
+      (mousedown)="onDragStart($event)"
+    >
+      <!-- Logo scroll handle -->
+      <div class="scroll-handle">
+        <div class="scroll-handle-logo">
+          <img src="assets/vsnapu-logo.png" alt="VsnapU" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+          <span class="scroll-handle-text" style="display:none">VsnapU</span>
+        </div>
+        <p class="scroll-handle-hint">Drag to explore</p>
+      </div>
+
+      @for (item of filteredItems; track item.id) {
+        <div class="gallery-item" (click)="openLightbox(item)">
+          @if (item.mediaType === 'video') {
+            <div class="gallery-thumb video-thumb">
+              <img
+                [src]="item.thumbnailUrl || item.mediaUrl"
+                [alt]="item.title || 'Wedding video'"
+                loading="lazy"
+              />
+              <div class="play-overlay">
+                <svg viewBox="0 0 24 24" fill="white" width="40" height="40">
+                  <circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.45)"/>
+                  <polygon points="10,8 10,16 17,12" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          } @else {
+            <div class="gallery-thumb">
+              <img
+                [src]="item.mediaUrl"
+                [alt]="item.title || 'Wedding photo'"
+                loading="lazy"
+              />
+            </div>
+          }
+          @if (item.title) {
+            <p class="gallery-item-label">{{ item.title }}</p>
+          }
+        </div>
+      }
+
+      @if (filteredItems.length === 0) {
+        <div class="gallery-empty">
+          <p class="text-muted">Gallery coming soon.</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (lightboxItem()) {
+  <div class="lightbox-backdrop" (click)="closeLightbox()">
+    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close">&#x2715;</button>
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      @if (lightboxItem()!.mediaType === 'video') {
+        <video controls autoplay class="lightbox-media">
+          <source [src]="lightboxItem()!.mediaUrl" type="video/mp4" />
+        </video>
+      } @else {
+        <img
+          [src]="lightboxItem()!.mediaUrl"
+          [alt]="lightboxItem()!.title || 'Wedding photo'"
+          class="lightbox-media"
+        />
+      }
+      @if (lightboxItem()!.title) {
+        <p class="lightbox-caption">{{ lightboxItem()!.title }}</p>
+      }
+    </div>
+  </div>
+}
