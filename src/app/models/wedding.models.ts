@@ -4,6 +4,10 @@ export interface WeddingEnquiryRequest {
   eventType?: string;
   weddingDate?: string;
   pageName?: string;
+  /** Honeypot — hidden field that must stay empty. */
+  website?: string;
+  /** Cloudflare Turnstile token, attached by WeddingEnquiryService. */
+  captchaToken?: string;
 }
 
 export interface WeddingGalleryItem {

@@ -1,0 +1,72 @@
+<!-- Floating action button -->
+<button id="enquiry-fab" class="enquiry-fab" (click)="open()" aria-label="Get a Quote">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <span>Get a Quote</span>
+</button>
+
+<!-- Modal backdrop + panel -->
+@if (isOpen()) {
+  <div class="modal-backdrop" (click)="close()"></div>
+  <div class="enquiry-modal" role="dialog" aria-modal="true" aria-label="Wedding Enquiry Form">
+    <button class="modal-close" (click)="close()" aria-label="Close">&#x2715;</button>
+
+    @if (formState() === 'success') {
+      <div class="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Thank you</h3>
+        <p>We'll be in touch within one business day.</p>
+        <button class="btn-gold" (click)="close(); formState.set('idle')">Close</button>
+      </div>
+    } @else {
+      <div class="modal-header">
+        <p class="modal-eyebrow">VsnapU Weddings</p>
+        <h3 class="modal-title">Tell Us About Your Day</h3>
+        <p class="modal-subtitle">We'll craft a personalised proposal just for you.</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="enquiry-form">
+        <!-- Honeypot -->
+        <input type="text" class="hp" formControlName="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="field-group">
+          <label>Your Name *</label>
+          <input type="text" formControlName="name" placeholder="Full name"
+            [class.invalid]="nameInvalid" />
+          @if (nameInvalid) { <span class="field-error">Please enter your name.</span> }
+        </div>
+
+        <div class="field-group">
+          <label>Mobile Number *</label>
+          <input type="tel" formControlName="contact" placeholder="10-digit mobile"
+            maxlength="10" [class.invalid]="contactInvalid" />
+          @if (contactInvalid) { <span class="field-error">Enter a valid 10-digit number.</span> }
+        </div>
+
+        <div class="field-group">
+          <label>Event Type</label>
+          <select formControlName="eventType">
+            @for (type of eventTypes; track type) {
+              <option [value]="type">{{ type }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label>Wedding Date <span class="optional">(optional)</span></label>
+          <input type="date" formControlName="weddingDate" />
+        </div>
+
+        @if (formState() === 'error') {
+          <p class="submit-error">{{ errorMessage() }}</p>
+        }
+
+        <button type="submit" class="btn-submit"
+          [disabled]="formState() === 'submitting'">
+          {{ formState() === 'submitting' ? 'Sending...' : 'Request a Callback' }}
+        </button>
+      </form>
+    }
+  </div>
+}
