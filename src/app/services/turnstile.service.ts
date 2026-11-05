@@ -54,8 +54,10 @@ export class TurnstileService {
       widgetId = api.render(host, {
         sitekey: this.siteKey,
         appearance: 'interaction-only',
+        // Never auto-retry: finish() removes the widget on the first error, and a retry would then try to reset a removed container.
+        retry: 'never',
         callback: (token: string) => finish(undefined, token),
-        'error-callback': () => finish(new Error('turnstile_error')),
+        'error-callback': () => { finish(new Error('turnstile_error')); return true; },
         'timeout-callback': () => finish(new Error('turnstile_expired')),
       });
     });
